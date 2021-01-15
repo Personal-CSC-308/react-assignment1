@@ -50,6 +50,7 @@ function MyApp() {
      async function makePostCall(person){
         try {
            const response = await axios.post('http://localhost:5000/users', person);
+           person.id = response.data.id
            return response;
         }
         catch (error) {
