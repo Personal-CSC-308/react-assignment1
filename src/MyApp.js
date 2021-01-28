@@ -31,7 +31,7 @@ function MyApp() {
     function removeOneCharacter(index) {
         const updated = characters.filter((character, i) => {
             if (i === index)
-               makeDeleteCall(character.id)
+               makeDeleteCall(character._id)
             return i !== index
         });
         setCharacters(updated);
@@ -52,7 +52,7 @@ function MyApp() {
      async function makePostCall(person){
         try {
            const response = await axios.post('http://localhost:5000/users', person);
-           person.id = response.data.id
+           person.id = response.data._id
            return response;
         }
         catch (error) {
